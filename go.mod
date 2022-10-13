@@ -1,3 +1,3 @@
-module genericapi
+module genericsapi
 
 go 1.19
