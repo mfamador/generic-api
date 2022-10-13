@@ -1,2 +1,3 @@
-# generic-api
-example golang api using generics
+# go-gtpc-generics-api
+
+example golang gRPC api using generics and hexagonal architecture
