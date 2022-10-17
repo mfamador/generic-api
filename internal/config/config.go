@@ -49,7 +49,6 @@ func searchConfig(dir string) (string, error) {
 	return searchConfig(filepath.Join(absPath, ".."))
 }
 
-// NewConfig returns a new config
 func init() {
 	configDir := os.Getenv("CONFIGOR_DIR")
 
