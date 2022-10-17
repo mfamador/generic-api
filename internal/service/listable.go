@@ -12,11 +12,11 @@ type Listable[T any] interface {
 }
 
 type listable[T any] struct {
-	repository repository.ListRepository[T]
+	repository repository.Listable[T]
 }
 
 // NewListable creates a generic Listable service
-func NewListable[T any](repo repository.ListRepository[T]) Listable[T] {
+func NewListable[T any](repo repository.Listable[T]) Listable[T] {
 	return &listable[T]{
 		repository: repo,
 	}

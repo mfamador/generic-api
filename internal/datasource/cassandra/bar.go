@@ -19,7 +19,7 @@ type bar struct {
 }
 
 // NewBar handles the instantiation
-func NewBar(session *gocql.Session) repository.ListRepository[model.Bar] {
+func NewBar(session *gocql.Session) repository.Listable[model.Bar] {
 	return &bar{
 		session,
 		GetCryptography(),

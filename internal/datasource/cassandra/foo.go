@@ -19,7 +19,7 @@ type foo struct {
 }
 
 // NewFoo handles the instantiation
-func NewFoo(session *gocql.Session) repository.ListRepository[model.Foo] {
+func NewFoo(session *gocql.Session) repository.Listable[model.Foo] {
 	return &foo{
 		session,
 		GetCryptography(),

@@ -5,7 +5,7 @@ import (
 	"genericsapi/internal/genericsapiv1"
 )
 
-// ListRepository exposes the interface to access a data source
-type ListRepository[T any] interface {
+// Listable exposes the interface to access a data source
+type Listable[T any] interface {
 	List(uint, *string, []*genericsapiv1.Filter) ([]*T, *string, error)
 }
