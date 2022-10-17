@@ -65,7 +65,6 @@ func NewWorld(clientFoo genericsapiv1.FooServiceClient, clientBar genericsapiv1.
 
 // DeleteCassandraTablesTables deletes all the cassandra tables
 func (w *World) DeleteCassandraTablesTables() {
-
 	// TODO
 }
 
