@@ -1,0 +1,7 @@
+config/config.development.*
+config/config.production.*
+build/*
+!build/requirements.txt
+Makefile
+.cache
+.vscode

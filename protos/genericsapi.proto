@@ -13,36 +13,80 @@ service BarService {
   rpc Read (ReadRequest) returns (ReadBarReply);
 }
 
+service StatusService {
+  rpc Status (StatusRequest) returns (StatusReply);
+}
+
 message Foo {
   int64 id = 1;
   string name = 2;
-  int64 value = 3;
+  double value = 3;
   string foo_specific = 4;
-  google.protobuf.Timestamp ts = 5;
+  google.protobuf.Timestamp timestamp = 5;
 }
 
 message Bar {
   int64 id = 1;
   string name = 2;
-  int64 value = 3;
+  double value = 3;
   string bar_specific = 4;
   string bar_another_specific = 5;
-  google.protobuf.Timestamp ts = 6;
+  google.protobuf.Timestamp timestamp = 6;
+}
+
+enum SortDirection {
+  ASCENDING = 0;
+  DESCENDING = 1;
+}
+
+message Sorting {
+  string column_name = 1;
+  SortDirection sort_direction = 2;
 }
 
 message Filter {
   string column_name = 1;
-  string string_value = 2;
+  FilterOperator operator = 2;
+  string string_value = 3;
+}
+
+enum FilterOperator
+{
+  EQUAL = 0;
+  NOTEQUAL = 1;
+  CONTAINS = 2;
+  STARTSWITH = 3;
+  ENDSWITH = 4;
+  GREATERTHAN = 5;
+  GREATERTHANOREQUAL = 6;
+  LESSTHAN = 7;
+  LESSTHANOREQUAL = 8;
 }
 
 message ReadRequest {
+  repeated Sorting sorting = 1;
   repeated Filter filters = 2;
+  uint32 limit = 3;
+  string cursor = 4;
 }
 
 message ReadFooReply {
   repeated Foo foos = 1;
+  string cursor = 2;
 }
 
 message ReadBarReply {
   repeated Bar bars = 1;
+  string cursor = 2;
 }
+
+message StatusReply {
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+  }
+  ServingStatus status = 1;
+}
+
+message StatusRequest {}

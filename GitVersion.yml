@@ -1,0 +1,8 @@
+mode: Mainline
+branches:
+ feature:
+   tag: alpha
+ master:
+   tag: ''
+ignore:
+ sha: []

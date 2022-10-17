@@ -1,0 +1,24 @@
+logger:
+  # Log level. Can be one of: debug, info, warn, error, fatal, panic
+  level: debug
+  # Use pretty (human-readable) logs
+  pretty: true
+
+# the server config
+server:
+  grpcPort: 9999
+  restPort: 9998
+
+# the cassandra config
+cassandra:
+  address: localhost
+  port: 9042
+  user:
+  password:
+  keyspace: data
+  cluster:
+    connTimeout: 15
+    timeout: 15
+  tls:
+    enabled: false
+  limit: 1000
